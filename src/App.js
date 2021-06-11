@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+
+class ContactList extends React.Component {
+  render(){
+    // All components will have the same names 
+    /*
+    const people = [
+      { name: 'Tyler'},
+      { name: 'Karen'},
+      { name: 'Richard'}
+    ]*/
+
+    // Use React properties to allow specific properties for each component
+    const people = this.props.contacts 
+
+    // .map() won't work if we don't have values for each created component
+    return <ol>
+      {people.map((person) => (
+        <li key={person.name}>{person.name}</li>
+      ))}
+    </ol>
+  }
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ContactList contacts={[
+        { name: 'Hassan '},
+        { name: 'Hussein '},
+        { name: 'Ali '}
+      ]} />
+        <ContactList contacts={[
+        { name: 'Jean '},
+        { name: 'Pierre '},
+        { name: 'Arthur '}
+      ]}  />
+        <ContactList contacts={[
+        { name: 'Obama '},
+        { name: 'Bolt '},
+        { name: 'Jordan '}
+      ]}  />
     </div>
   );
 }
