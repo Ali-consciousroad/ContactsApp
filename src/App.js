@@ -1,6 +1,28 @@
-import './App.css';
 import React, { Component } from 'react';
+import ListContacts from './ListContacts';
+import './App.css';
 
+const contacts = [
+  {
+    "id": "karen",
+    "name": "Karen Isgrigg",
+    "handle": "karen_isgrigg",
+    "avatarURL": "http://localhost:5001/karen.jpg"
+  },
+  {
+    "id": "richard",
+    "name": "Richard Kalehoff",
+    "handle": "richardkalehoff",
+    "avatarURL": "http://localhost:5001/richard.jpg"
+  },
+  {
+    "id": "tyler",
+    "name": "Tyler McGinnis",
+    "handle": "tylermcginnis",
+    "avatarURL": "http://localhost:5001/tyler.jpg"
+  }
+ ];
+ 
 class ContactList extends React.Component {
   render(){
     // All components will have the same names 
@@ -26,21 +48,7 @@ class ContactList extends React.Component {
 function App() {
   return (
     <div className="App">
-      <ContactList contacts={[
-        { name: 'Hassan '},
-        { name: 'Hussein '},
-        { name: 'Ali '}
-      ]} />
-        <ContactList contacts={[
-        { name: 'Jean '},
-        { name: 'Pierre '},
-        { name: 'Arthur '}
-      ]}  />
-        <ContactList contacts={[
-        { name: 'Obama '},
-        { name: 'Bolt '},
-        { name: 'Jordan '}
-      ]}  />
+      <ListContacts contacts={contacts} />
     </div>
   );
 }
